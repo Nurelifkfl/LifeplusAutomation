@@ -6,7 +6,8 @@ import org.openqa.selenium.support.FindBy;
 public abstract class BasePage {
 
 
-
+    @FindBy(xpath = "//*[text()='Log in or register']")
+    public WebElement firstLogIn;
     @FindBy(css = ".popup-button.login-button")
     public WebElement popUpLoginButton;
 

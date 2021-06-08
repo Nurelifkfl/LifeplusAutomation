@@ -9,9 +9,10 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class LoginStepDefinitions {
-
+     LoginPage loginPage = new LoginPage();
     @Given("user is on homepage")
     public void user_is_on_homepage() {
         Driver.get().get(ConfigurationReader.get("url"));
@@ -22,13 +23,14 @@ public class LoginStepDefinitions {
     @When("user navigates to login")
     public void user_navigates_to_login() {
 
-        BrowserUtils.waitFor(2);
-        String loginButton="//*[text()='Log in or register']";
-       Driver.get().findElement(By.xpath(loginButton)).click();
+        WebElement firstLogIn = loginPage.firstLogIn;
+        firstLogIn.click();
 
         BrowserUtils.waitFor(2);
-       String popUpLoginBut=".popup-button.login-button";
-       Driver.get().findElement(By.cssSelector(popUpLoginBut)).click();
+
+        WebElement popupLogIn = loginPage.popUpLoginButton;
+        popupLogIn.click();
+
     }
 
     @When("enter valid username and password")
@@ -48,7 +50,6 @@ public class LoginStepDefinitions {
         String logout="user-logout";
         String actual=Driver.get().findElement(By.className(logout)).getText();
 
-        System.out.println(actual);
         Assert.assertTrue(" ",actual.contains(expected));
 
 
