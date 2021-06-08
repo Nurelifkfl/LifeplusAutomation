@@ -19,7 +19,7 @@ public class LoginPage extends BasePage{
     public void login(String userNameStr, String passwordStr) {
         username.sendKeys(userNameStr);
         password.sendKeys(passwordStr);
-        Login.click();
+        login.click();
 
     }
 

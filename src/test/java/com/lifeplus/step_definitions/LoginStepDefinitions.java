@@ -12,7 +12,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class LoginStepDefinitions {
+
      LoginPage loginPage = new LoginPage();
+
     @Given("user is on homepage")
     public void user_is_on_homepage() {
         Driver.get().get(ConfigurationReader.get("url"));
@@ -54,6 +56,24 @@ public class LoginStepDefinitions {
 
 
 
+    }
+
+
+
+    @When("the user enters {string} and {string}")
+    public void the_user_enters_and(String userInput, String passwordInput) {
+
+        LoginPage loginPage = new LoginPage();
+        loginPage.login(userInput,passwordInput);
+
+    }
+
+    @Then("the invalid login sign should be seen on the page")
+    public void the_invalid_login_sign_should_be_seen_on_the_page() {
+        String actualResult = Driver.get().findElement(By.className("notify-output")).getText();
+        String expectedResult="Invalid Login";
+
+        Assert.assertEquals(expectedResult,actualResult);
     }
 
 

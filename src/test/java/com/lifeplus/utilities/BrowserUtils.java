@@ -8,6 +8,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BrowserUtils {
+
+
     public static void waitFor(int seconds) {
         try {
             Thread.sleep(seconds * 1000);
@@ -28,6 +30,8 @@ public class BrowserUtils {
         WebDriverWait wait = new WebDriverWait(Driver.get(), timeToWaitInSec);
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
+
+
     public static void waitForPageToLoad(long timeOutInSeconds) {
         ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
             public Boolean apply(WebDriver driver) {
@@ -41,4 +45,6 @@ public class BrowserUtils {
             error.printStackTrace();
         }
     }
+
+
 }

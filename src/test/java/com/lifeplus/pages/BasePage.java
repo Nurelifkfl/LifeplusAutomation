@@ -8,6 +8,7 @@ public abstract class BasePage {
 
     @FindBy(xpath = "//*[text()='Log in or register']")
     public WebElement firstLogIn;
+
     @FindBy(css = ".popup-button.login-button")
     public WebElement popUpLoginButton;
 
@@ -18,7 +19,7 @@ public abstract class BasePage {
     public WebElement password;
 
     @FindBy(xpath = "(//span[@class='iconbutton-text'])[2]")
-    public WebElement Login;
+    public WebElement login;
 
 
 

@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/lifeplus/step_definitions",
         dryRun = false,
-        tags = "@purchase"
+        tags = "@login2"
 
 )
 
