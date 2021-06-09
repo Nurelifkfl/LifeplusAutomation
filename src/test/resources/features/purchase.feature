@@ -6,7 +6,7 @@ Feature: Purchasing an item
     And enter valid username and password
     Then the user should be able to login successfully
 
-@purchase
+    @wip
     Scenario: user should be able to add item to the basket
       Given the user navigates to "Our Products" "Nutritional Supplements" "Lifeplus Recommends"
       And the user stores information of item in a txt file
